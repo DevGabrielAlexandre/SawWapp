@@ -26,7 +26,7 @@
                 <a href="?pg=carregarContatos">Ver contatos</a>
             </li>
             <li>
-                <a href="?pg=mandarMensagens">Mandar Mensagens</a>
+                <a href="?pg=carregarMensagens">Carregar Mensagens</a>
             </li>
         </ul>    
 </div>
@@ -42,8 +42,8 @@ if (isset($_GET["pg"])){
        case "listarSessao"       : $pg = "iniciar/listarSessao.php"     ;break;
        case "excluirSessao"      : $pg = "iniciar/excluirSessao.php"    ;break;
        case "checkSessao"        : $pg = "iniciar/checkSessao.php"      ;break;
-       case "carregarContatos"   : $pg = "chat/carregarContatos.php" ;break;
-       case "mandarMensagens"   : $pg  = "chat/mandarMensagens.php" ;break;
+       case "carregarContatos"   : $pg = "chat/carregarContatos.php"    ;break;
+       case "carregarMensagens"  : $pg = "chat/carregarMensagens.php"   ;break;
     } 
     include($pg);
  }else{

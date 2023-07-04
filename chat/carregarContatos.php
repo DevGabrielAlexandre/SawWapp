@@ -1,11 +1,12 @@
+
 <form method="POST">
-<input type="text" name="tokenCont" placeholder="Token">
-<input type="text" name="sessaoCont" placeholder="Sessão">
-<button type="submit" name="carregarContatos">Carregar Contatos</button>
+    <input type="text" name="tokenCont" placeholder="Token">
+    <input type="text" name="sessaoCont" placeholder="Sessão">
+    <button type="submit" name="carregarContatos">Carregar Contatos</button>
 </form>
 
 <?php
-    if(isset($_POST['carregarContatos'])) {
+if(isset($_POST['carregarContatos'])) {
         $tokenCont = $_POST['tokenCont'];
         $sessaoCont = $_POST['sessaoCont'];
         $authorizationCont = "Authorization: Bearer ". $tokenCont;
@@ -22,11 +23,21 @@
 
 ));
 
-$result = curl_exec($curl);
+$result = curl_exec($curl); //Recebe as informações da url
     curl_close($curl);
-    
-    echo "<pre>$result</pre>";
-    echo "<hr>";
-    }
 
+    $contatos = json_decode($result); //Transforma essa informação em json
+
+
+    foreach ($contatos as $contato) { //pega apenas os dados informados:
+        $numero = $contato->contact->formattedName;
+        $nome = $contato->contact->pushname;
+
+        echo $numero . "<br>";
+        echo $nome . "<br>";
+    
+    echo "<hr>";
+    
+    }
+}
 ?>

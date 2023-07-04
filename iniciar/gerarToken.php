@@ -1,4 +1,5 @@
 <form method="POST">
+    <label>Informe:</label>
 <input type="text" name="secret" placeholder="Secret Key">
 <input type="text" name="sessao" placeholder="Sessão">
 <button type="submit" name="gerarToken">Gerar o token</button>
